@@ -112,6 +112,14 @@ two_a_squared = 2*((1/57)**2)
 sigma = math.sqrt(dec_pi/two_a_squared)
 mean_pop = 57 * math.sqrt(math.pi / 2)
 
+def n_star_prob_list(the_list):
+    n_count = 0
+    for j in range(110):
+        if the_list[j] - mean_pop <= 10:
+            n_count = n_count + 1
+    return n_count / 110
+
+print(n_star_prob_list(x_30))
 
 def z_score(provided_value, n_value):
     numerator = provided_value - mean_pop
@@ -154,7 +162,15 @@ def get_mad(the_list):
         return_list.append(mad)
     return max(return_list)
 
-
+def get_mad_list(the_list):
+    the_little_zs = [-1.4, -1, -0.5, 0, 0.5, 1, 1.4]
+    return_list = []
+    for j in range(7):
+        mad = abs(the_list[j] - st.norm.cdf(the_little_zs[j]))
+        return_list.append(mad)
+    return return_list
+# z_5 = turn_to_z_list(x_5, 5)
+# print(z_5)
 f_hat_5 = (list_little_z_probs(turn_to_z_list(x_5, 5)))
 f_hat_10 = (list_little_z_probs(turn_to_z_list(x_10, 10)))
 f_hat_30 = (list_little_z_probs(turn_to_z_list(x_30, 30)))
@@ -177,15 +193,23 @@ print(f_hat_500)
 
 
 
-#print(get_mad(f_hat_5))
-#print(get_mad(f_hat_10))
-#print(get_mad(f_hat_30))
-#print(get_mad(f_hat_50))
-#print(get_mad(f_hat_100))
-#print(get_mad(f_hat_150))
-#print(get_mad(f_hat_250))
-#print(get_mad(f_hat_500))
+print(get_mad(f_hat_5))
+print(get_mad(f_hat_10))
+print(get_mad(f_hat_30))
+print(get_mad(f_hat_50))
+print(get_mad(f_hat_100))
+print(get_mad(f_hat_150))
+print(get_mad(f_hat_250))
+print(get_mad(f_hat_500))
 
+print(get_mad_list(f_hat_5))
+print(get_mad_list(f_hat_10))
+print(get_mad_list(f_hat_30))
+print(get_mad_list(f_hat_50))
+print(get_mad_list(f_hat_100))
+print(get_mad_list(f_hat_150))
+print(get_mad_list(f_hat_250))
+print(get_mad_list(f_hat_500))
 
 
 
