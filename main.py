@@ -75,7 +75,17 @@ x_150 = []
 x_250 = []
 x_500 = []
 
-random_probs = generate(140455)
+
+x_5_2 = []
+x_10_2 = []
+x_30_2 = []
+x_50_2 = []
+x_100_2 = []
+x_150_2 = []
+x_250_2 = []
+x_500_2 = []
+
+random_probs = generate(1404881)
 
 for j in range(110):
     x_5.append(simulate(5))
@@ -86,10 +96,19 @@ for j in range(110):
     x_150.append(simulate(150))
     x_250.append(simulate(250))
     x_500.append(simulate(500))
-
+#
+# for j in range(110):
+#     x_5_2.append(simulate(5))
+#     x_10_2.append(simulate(10))
+#     x_30_2.append(simulate(30))
+#     x_50_2.append(simulate(50))
+#     x_100_2.append(simulate(100))
+#     x_150_2.append(simulate(150))
+#     x_250_2.append(simulate(250))
+#     x_500_2.append(simulate(500))
 
 dec_pi = 4 - math.pi
-two_a_squared = (1/57)*(1/57)*2
+two_a_squared = 2*((1/57)**2)
 sigma = math.sqrt(dec_pi/two_a_squared)
 mean_pop = 57 * math.sqrt(math.pi / 2)
 
